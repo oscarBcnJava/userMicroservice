@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: users-server
+
+
+error:
+  path: /error
+
+server:
+  port: 2002
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+
