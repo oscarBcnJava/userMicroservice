@@ -1,13 +1,14 @@
 spring:
   application:
-    name: administration-server
-
-
-error:
-  path: /error
+    name: application-service
+  freemarker:
+    enabled: false
+  thymeleaf:
+    cache: false
+    prefix: classpath:/administration/templates/
 
 server:
-  port: 2001
+  port: 3333
 
 eureka:
   client:
@@ -15,4 +16,3 @@ eureka:
       defaultZone: http://localhost:1111/eureka/
   instance:
     leaseRenewalIntervalInSeconds: 5
-

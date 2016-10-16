@@ -1,0 +1,95 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="copy">
+    <title>Administration. User List</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta
+            content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no"
+            id="Viewport" name="viewport" />
+
+    <link rel="stylesheet" media="screen"
+          href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css" />
+
+    <link rel="stylesheet"
+          href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<div class="jumbotron">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 align="center">Administration Microservice</h1>
+            <h3 align="center" >Add User </h3>
+
+            <form align="center" action="#" th:action="@{/users/add}" th:object="${user}" method="post">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" th:field="*{name}" id="name"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="text" th:field="*{password}" id="password"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nickname">Nickname:</label>
+                        <input type="text" th:field="*{nickname}" id="nickname"/>
+                    </div>
+
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+
+
+        </div>
+    </div>
+</div>
+    <div style="text-align: center">
+        <a th:href="@{/}">Return Home Page</a>
+    </div>
+</div>
+
+    <!--<form role="form" method="post" action="@{/update}" modelAttribute="user" th:object="${user}">
+        <h2>Personal details</h2>
+        <table>
+            <tr>
+                <td>Id User:</td>
+                <td>
+                    <input type="text" th:readonly="true" th:value="*{id}" th:field="*{id}"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Name:</td>
+                <td>
+                    <input type="text" th:readonly="true" th:value="*{name}" th:field="*{name}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>
+                    <input type="text" th:value="*{password}" th:field="*{password}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Nickname:</td>
+                <td>
+                    <input type="text" th:value="*{nickname}" th:field="*{nickname}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Creation Account</td>
+                <td>
+                    <input type="text" th:readonly="*{creationAccount}" th:field="*{creationAccount}"/>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Submit"/>
+    </form>-->
+
+</body>
+</html>

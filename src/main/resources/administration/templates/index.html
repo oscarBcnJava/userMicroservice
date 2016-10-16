@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="copy">
+    <title>Administration. User List</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta
+            content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no"
+            id="Viewport" name="viewport" />
+
+    <link rel="stylesheet" media="screen"
+          href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css" />
+
+    <link rel="stylesheet"
+          href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<div class="jumbotron">
+<div class="container text-center" >
+        <div class="col-md-12">
+            <h1 align="center">USERS ADMINISTRATION</h1>
+            <ul align="center" class="list-group">
+                <li class="list-group-item"><a th:href="@{/users/all}">All users</a></li>
+                <li class="list-group-item"><a th:href="@{/users/add}">New user</a></li>
+                <li class="list-group-item"><a th:href="@{/users/search}">Search users</a></li>
+                <li class="list-group-item"><a th:href="@{/health}">Health User microservice</a></li>
+            </ul>
+        </div>
+</div>
+</div>
+</body>
+</html>

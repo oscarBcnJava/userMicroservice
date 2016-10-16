@@ -1,0 +1,77 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="copy">
+    <title>Administration. User List</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta
+            content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no"
+            id="Viewport" name="viewport" />
+
+    <link rel="stylesheet" media="screen"
+          href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css" />
+
+    <link rel="stylesheet"
+          href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<div class="jumbotron">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 align="center">Administration Microservice</h1>
+                <h3 align="center" >Users Search</h3>
+                <form align="center" action="#" th:action="@{/users/search}" th:object="${search}"  method="post">
+                    <div class="form-group">
+                        <label for="startId">From Id</label>
+                        <input type="text" th:value="*{startId}" th:field="*{startId}" from="startId"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="endId">To Id</label>
+                        <input type="text" th:value="*{startId}" th:field="*{startId}" id="endId"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+
+                <div th:if="not ${users}" class="error">
+                    No users found
+                </div>
+
+                <div th:if="${users}">
+
+                    <table class="table table-sm">
+                        <thead>
+                        <tr>
+                            <th>Id user</th>
+                            <th>Name</th>
+                            <th>Password</th>
+                            <th>Nickname</th>
+                            <th>Data Creation Account</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr th:each="user : ${users}">
+                            <td th:text="${user.id}">Id User</td>
+                            <td th:text="${user.name}">Password</td>
+                            <td th:text="${user.password}">Password</td>
+                            <td th:text="${user.nickname}">Nickname</td>
+                            <td th:text="${#dates.format(user.creationAccount, 'dd-MMM-yyyy')}">Data creation Account</td>
+                            <td><a th:href="@{'/users/update/' + ${user.id}}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                            <td><a th:href="@{'/users/delete/' + ${user.id}}"><span class="glyphicon glyphicon-remove"></span></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="text-align:center">
+        <a th:href="@{/}">Return Home Page</a>
+    </div>
+</div>
+
+</body>
+</html>
